@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Cards, CountryPicker, Chart } from "./components";
+import { Cards, Chart, CountryList, Assessment, Footer } from "./components";
 import { fetchData } from "./api/";
 import styles from "./App.module.css";
-
+import { Container, Row, Col } from "react-bootstrap";
 import image from "./images/image.png";
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     const data = await fetchData();
-
+    document.title="COVID-19 | Worldwide status"
     this.setState({ data });
   }
 
@@ -23,17 +23,41 @@ class App extends React.Component {
 
     this.setState({ data, country: country });
   };
+  componentDidUpdate =(prevProps, prevState)=>{
+    if(prevState.country !== this.state.country){
+    document.title = `COVID-19 | ${this.state.country !== "" ?this.state.country :"Worldwide" } status`;
+    }
+  }
 
   render() {
     const { data, country } = this.state;
 
     return (
-      <div className={styles.container}>
-        <img className={styles.image} src={image} alt="COVID-19" />
+      <Container className={styles.container}>
+        <Row>
+          <Col>
+            <img className={styles.image} src={image} alt="COVID-19" />
+          </Col>
+        </Row>
         <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
-      </div>
+        <Row className="w-100">
+          <Col xs={12} md={3}>
+            <CountryList
+              selectedCountry ={country}
+              handleCountryChange={this.handleCountryChange}
+            />
+          </Col>
+          <Col xs={12} md={9}>
+            <Chart data={data} country={country} />
+          </Col>
+        </Row>
+        {/* <Row className="mt-4">
+          <Col>
+          <Assessment />
+          </Col>
+        </Row> */}
+        <Footer />
+      </Container>
     );
   }
 }

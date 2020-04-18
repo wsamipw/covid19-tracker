@@ -1,11 +1,12 @@
 body {
-  background-color: rgb(250, 250,250);
+  background-color: rgb(250, 250, 250);
 }
 
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100% !important;
 }
 
 .image {
@@ -14,10 +15,6 @@ body {
 }
 
 @media only screen and (max-width: 770px) {
-  .container {
-    margin: 0 10%;
-  }
-
   .image {
     width: 100%;
   }
