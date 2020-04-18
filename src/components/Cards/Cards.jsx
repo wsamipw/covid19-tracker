@@ -11,7 +11,7 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
 
   return (
     <Row className={styles.container}>
-      <Col xs={12} md={4}>
+      <Col xs={12} md={12} lg={4} className="mb-2 mb-lg-none px-1">
         <Card className="w-100">
           <CardContent className={styles.infected}>
             <Typography className={styles.text_white} gutterBottom variant="h4">
@@ -35,7 +35,7 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           </CardContent>
         </Card>
       </Col>
-      <Col xs={12} md={4}>
+      <Col xs={12} md={6} lg={4} className="mb-2 mb-lg-none">
         <Card className="w-100">
           <CardContent className={styles.recovered}>
             <Typography className={styles.text_white} gutterBottom variant="h4">
@@ -59,7 +59,7 @@ const Info = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
           </CardContent>
         </Card>
       </Col>
-      <Col xs={12} md={4}>
+      <Col xs={12} md={6} lg={4} className="mb-2 mb-lg-none">
         <Card className="w-100">
           <CardContent className={styles.deaths}>
             <Typography className={styles.text_white} gutterBottom variant="h4">

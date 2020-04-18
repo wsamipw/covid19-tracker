@@ -1,10 +1,11 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
+import styles from "./Footer.module.css";
 const Footer = () => {
     return (
-      <Row className="mt-3">
+      <Row className={styles.footer}>
         <Col>
-          <p>
+          <p className="text-center">
             <small>
               Powered by{" "}
               <a
@@ -32,4 +33,3 @@ const Footer = () => {
     );
 }
 export default Footer;
-// COVID-19 global data (from JHU CSSE for now) as-a-service
