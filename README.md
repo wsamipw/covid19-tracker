@@ -15,7 +15,7 @@ COVID-19 Cases tracking App built using ReactJS.
 3. Start the project
 
    ```bash
-   npm i
+   npm start
    ```
 
    Runs the app in the development mode.<br />
