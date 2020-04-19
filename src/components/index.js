@@ -4,3 +4,4 @@ export { default as Cards } from './Cards/Cards';
 export { default as CountryList} from './CountryList/CountryList';
 export { default as Assessment} from './Assessment/Assessment';
 export { default as Footer} from './Footer/Footer';
+export { default as InfoCard} from './Cards/InfoCard';
