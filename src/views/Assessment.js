@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import { Button, TextField } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -15,27 +15,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-const useTimes =()=>{
-  const [times, setTimes] = useState([]);
-
-  useEffect(()=>{
-    const unsubscribe = firebase.firestore().collection('times').onSnapshot((snapshot)=>{
-      const newTimes = snapshot.docs.map(doc=>({
-        id:doc.id,
-        ...doc.data()
-      }))
-      setTimes(newTimes);
-    })
-    return ()=>unsubscribe();
-  },[])
-
-  return times;
-}
 
 const Assessment = (props) => {
-  const times = useTimes();
-  const [title, setTitle] = useState('');
-  const [time, setTime] = useState('');
   const [open, setOpen] = useState(false);
   const [activeQuestion, setActiveQuestion] = useState(0);
 

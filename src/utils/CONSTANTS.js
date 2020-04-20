@@ -156,7 +156,7 @@ export const LEVEL_TWO = (
     <p>
       Based on the responses you have provided, your risk of having been exposed
       to COVID-19 is <strong>HIGH</strong>. Please consult a doctor and test for
-      COVID-19 As soon as posible. In the meantime before the test is carried
+      COVID-19 as soon as posible. In the meantime before the test is carried
       out, <strong>SELF QUARANTINE</strong> is strongly advised.
     </p>
     <p>
