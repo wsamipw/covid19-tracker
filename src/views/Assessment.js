@@ -81,7 +81,12 @@ const Assessment = (props) => {
   }
   const onRetake =()=>{
     setOpen(false);
-    props.history.push("/self-assessment");
+    setActiveQuestion(0);
+  }
+
+  const handleClose =()=>{
+    setOpen(false);
+    props.history.push("/");
 
   }
 
@@ -136,12 +141,12 @@ const Assessment = (props) => {
             handleNext();
           }}
         >
-          Next question
+          Proceed
         </Button>
       )}
       <Dialog
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -154,10 +159,10 @@ const Assessment = (props) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} color="primary">
+          <Button onClick={onRetake} color="primary">
             Retake
           </Button>
-          <Button onClick={() => setOpen(false)} color="secondary">
+          <Button onClick={handleClose} color="secondary">
             Close
           </Button>
         </DialogActions>
