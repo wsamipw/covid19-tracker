@@ -9,18 +9,23 @@ const Home = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    document.title = `COVID-19 | ${
-      country !== "" ? country : "Worldwide"
-    } status`;
     const fetch = async () => {
       setData(await fetchData());
     };
     fetch();
-  }, [country]);
+  }, []);
+
+  useEffect(()=>{
+    document.title = `COVID-19 | ${
+      country !== "" ? country : "Worldwide"
+    } status`;
+  },[country])
+
   const handleCountryChange = async (country) => {
     setCountry(country);
     setData(await fetchData(country));
   };
+
 
   return (
     <div>

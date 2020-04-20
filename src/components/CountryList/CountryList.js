@@ -4,16 +4,6 @@ import { fetchCountries } from "../../api";
 import styles from "./CountryList.module.css";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-// function countryToFlag(isoCode) {
-//   console.log("iso2:", isoCode);
-//   return typeof String.fromCodePoint !== "undefined"
-//     ? isoCode
-//         .toUpperCase()
-//         .replace(/./g, (char) =>
-//           String.fromCodePoint(char.charCodeAt(0) + 127397)
-//         )
-//     : isoCode;
-// }
 
 const CountryList = ({ handleCountryChange, selectedCountry }) => {
   const [countries, setCountries] = useState([]);
@@ -34,10 +24,8 @@ const CountryList = ({ handleCountryChange, selectedCountry }) => {
         autoHighlight
         getOptionLabel={(option) => option.name}
         renderOption={(option) => {
-          console.log("OPTION:", option);
           return (
             <React.Fragment>
-              {/* <span>{countryToFlag(option.iso2)}</span> */}
               {option.name}
             </React.Fragment>
           );
